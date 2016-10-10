@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <script src="js/jquery-3.1.0.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <style>
+
+            body{
+                /*.875em表示14px,1.5rem表示行高*/
+                font: .875em/1.5rem Helvetica,Microsoft Yahei,Hiragino Sans GB,sans-serif;
+            }
+
+            a,
+            li,
+            .dropdown-menu{
+                transition: all .24s ease-out;
+            }
+
+            a:hover,
+            a:link{
+                text-decoration: none;
+            }
+
+            @media screen and (max-width: 768px) {
+                #main-menu{
+                    position: fixed;
+                    top: 40px;
+                    left: 0;
+                    bottom: 0;
+                    display: block;
+                    width: 100%;
+                    background-color: #181818;
+                }
+                #main-menu .menu  > li {
+                    width: 100%;
+                    margin-top: 20px;
+                    line-height: 24px;
+                    background: none !important;
+                    text-align: left;
+                }
+
+                #main-menu .menu > li > a{
+                    width: 94%;
+                    height: 36px;
+                    padding: 6px 3%;
+                    background-color: #242424;
+                    box-shadow: 0 1px 2px #000;
+                }
+
+                #main-menu .menu li a {
+                    display: block;
+                    color: #999;
+                    font-size: 1.5rem;
+                }
+
+                #main-menu .menu li a:hover{
+                    color: #fff;
+                }
+
+                #main-menu .qingganfm .dropdown-menu {
+                    display: block;
+                    width: 100%;
+                    height: 200px;
+                    background-color: #fff;
+                }
+
+                .qingganfm .dropdown-menu li {
+                    display: inline-block;
+                    float: left;
+                }
+
+                .qingganfm .min_menu a {
+                    display: inline-block;
+                }
+
+            }
+
+            @media screen and (min-width: 768px){
+
+
+                .navbar-header {
+                    display: none;
+                }
+
+                .qingganfm .min_menu{
+                    display: none;
+                }
+
+                .dropdown-submenu {
+                    position: relative;
+                }
+
+                .dropdown-menu {
+                    /*display: block;*/
+                    /*opacity: 0;*/
+                    /*height: 0;*/
+                    min-width: 128px;
+                    border-radius: 0;
+                    text-align: center;
+                }
+
+                #main-menu .dropdown-menu li {
+                    height: 34px;
+                }
+
+                #main-menu .dropdown-menu li a {
+                    display: block;
+                    width: 126px;
+                    height: 32px;
+                    line-height: 28px;
+                }
+
+                .dropdown-submenu > .dropdown-menu {
+                    top: 42px;
+                    left: 0;
+                    margin-top: -6px;
+                    margin-left: -3px;
+                }
+
+                .dropdown-submenu > .submenu2 {
+                    top: 0;
+                    left: 128px;
+                    margin-top: -4px;
+                }
+
+                .dropdown-submenu:hover > .dropdown-menu {
+                    display: block;
+                    /*height: 110px;*/
+                    /*opacity: 1;*/
+                    background-color: #125;
+                }
+
+                .dropdown-submenu:hover > .dropdown-menu a {
+                    color: #fff;
+                }
+
+            }
+
+            @media screen and (max-width: 986px) {
+                .nav-logo,
+                .nav-logo a{
+                    width: 132px;
+                    height: 40px;
+                    margin-top: 1px;
+                    background-size: 150px 35px;
+                }
+
+            }
+
+            @media screen and (max-width: 870px) {
+                .nav-logo,
+                .nav-logo a{
+                    width: 52px;
+                    margin-right: 8px;
+                }
+            }
+            
+            /*屏幕小于768px时的样式*/
+
+
+            /*main-navigation nav*/
+            .main-navigation {
+                width: 100%;
+                min-width: 320px;
+                height: 40px;
+                background-color: #000;
+                box-shadow: 0 3px 6px rgba(0,0,0,.3);
+                line-height: 40px;
+            }
+
+            .nav-content{
+                width: 99%;
+                margin: auto;
+                max-width: 1330px;
+            }
+
+            .nav-logo{
+                float: left;
+            }
+
+            .nav-logo a{
+                display: block;
+                width: 168px;
+                height: 40px;
+                margin-right: 10px;
+                background-image: url(http://www.semorn.com/wp-content/uploads/2014/11/weblogo_3.png);
+                background-repeat: no-repeat;
+            }
+
+
+            .nav-menu ul li{
+                float: left;
+                width: 96px;
+                height: 40px;
+                padding: 0;
+                font-size: 0;
+                text-align: center;
+                line-height: 40px;
+            }
+
+            .nav-menu ul li a{
+                display: block;
+                width: 96px;
+                height: 40px;
+                font-size: 1.6rem;
+                font-weight: 500;
+                color: #fff;
+            }
+
+            .nav-menu ul li a:hover{
+                background-color: #014e8b;
+            }
+
+            .active{
+                background-color: #6400A6;
+            }
+
+            .nav-icon{
+                float: right;
+                color: #fff;
+                text-align: center;
+                line-height: 40px;
+            }
+
+            .nav-icon a {
+                color: #fff;
+            }
+
+            .nav-icon i{
+                width: 32px;
+                height: 32px;
+                margin-left: 9px;
+                border: 4px solid #333;
+                border-radius: 16px;
+                font-size: 14px;
+                font-weight: 900;
+                text-align: center;
+                line-height: 24px;
+                opacity: .9;
+            }
+
+            .nav-icon i:hover{
+                opacity: .6;
+            }
+
+            .nav-icon .search input{
+                position: fixed;
+                top: 48px;
+                right: 46px;
+                display: none;
+                width: 542px;
+                height: 42px;
+                border: 5px solid #004488;
+                background-color: #e6e6e6;
+            }
+
+            .nav-icon .list-ul {
+                position: fixed;
+                top: 50px;
+                right: 16px;
+                display: none;
+                width: 149px;
+                height: 193px;
+                border: 5px solid #000000;
+            }
+
+            .fa-search{
+                background-color: #2A882A;
+            }
+
+            .fa-user{
+                background-color: #aaa;
+            }
+
+            .fa-list-ul{
+                background-color: #e03d85;
+            }
+
+            .fa-pencil-square-o{
+                background-color: #046CCC;
+            }
+
+            .main-navigation a:hover {
+            }
+
+            .navbar-header i {
+                font-size: 1.8em;
+                width: 80px;
+                height: 40px;
+                line-height: 40px;
+                cursor: pointer;
+                color: #fff;
+                background-color: #666;
+                text-align: center;
+            }
+
+            .wangluofm{
+                position: fixed;
+                left: 370px;
+                top: 40px;
+                display: none;
+                width: 79px;
+                height: 31px;
+                border: 2px solid #ddd;
+                background-color: #f6f6f6;
+                text-align: center;
+                line-height: 28px;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <nav class="main-navigation">
+            <div class="nav-content">
+                <div class="nav-logo"><a href="#"></a></div>
+                <div class="nav-icon">
+                    <div class="search">
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <a href="#" class="input-search"><i class="fa fa-search"></i></a>
+                    <a href="#"><i class="fa fa-user"></i></a>
+                    <div class="list-ul"></div>
+                    <a href="#" class="list-ul-text"><i class="fa fa-list-ul"></i></a>
+                    <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+                </div>
+                <div class="navbar-header dropdown">
+                    <span data-toggle="collapse" data-target="#main-menu">
+                        <!--折叠图标-->
+                        <i class="fa fa-th-list"></i>
+                    </span>
+                </div>
+                <!--class 名 collapse表示初始状态是折叠-->
+                <div class="navbar-collapse collapse nav-menu" id="main-menu">
+                    <div class="wangluofm">网络电台</div>
+                    <ul class="menu list-unstyled list-inline">
+                        <li class="active shouye"><a href="#">首页</a></li>
+                        <li class="qingganfm dropdown-submenu">
+                            <a href="#">情感电台</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="#">在线收听</a>
+                                    <ul class="dropdown-menu submenu2">
+                                        <li><a href="#">爱情电台节目</a></li>
+                                        <li><a href="#">励志电台节目</a></li>
+                                        <li><a href="#">成长电台节目</a></li>
+                                        <li><a href="#">温暖电台节目</a></li>
+                                        <li><a href="#">伤感电台节目</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">故事电台</a></li>
+                                <li><a href="#">音乐电台</a></li>
+                            </ul>
+                        </li>
+                        <li class="qingganarticle dropdown-submenu">
+                            <a href="#">情感文章</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">成长电台稿子</a></li>
+                                <li><a href="#">爱情电台稿子</a></li>
+                                <li><a href="#">生活电台稿子</a></li>
+                            </ul>
+                        </li>
+                        <li class="gushiarticle dropdown-submenu">
+                            <a href="#">故事文章</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">旅游日记</a></li>
+                                <li><a href="#">人物故事</a></li>
+                            </ul>
+                        </li>
+                        <li class="yinyufm"><a href="#">电台音乐</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <script>
+            $(".shouye").mouseenter(function () {
+                $(".wangluofm").css("display","block");
+            });
+            $(".shouye").mouseleave(function () {
+               $(".wangluofm").css("display","none");
+            });
+            var input_falg = 0;
+            $(".input-search").click(function () {
+                if(input_falg ==0){
+                    $(".search").children("input").css("display","block");
+                    input_falg = 1;
+                }
+                else {
+                    $(".search").children("input").css("display","none");
+                    input_falg = 0;
+                }
+            });
+
+            var list_ul_flag = 0;
+            $(".list-ul-text").click(function () {
+                if(list_ul_flag == 0){
+                    $(".list-ul").css("display","block");
+                    list_ul_flag = 1;
+                }
+                else {
+                    $(".list-ul").css("display","none");
+                    list_ul_flag = 0;
+                }
+            });
+
+        </script>
+    </body>
+</html>
